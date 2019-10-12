@@ -51,7 +51,7 @@ public class CardTester {
 	} 
 	
 
-	@Test    
+	@Test  // EXERCISE #2
 	public void add1Test() { 
 		Card[] oneCardDeck = { qHeartsCard, null };
 		Card[] twoCardDeck = { qHeartsCard, fiveSpadesCard };
@@ -69,7 +69,7 @@ public class CardTester {
 	} 
 
 	
-	@Test    
+	@Test    // EXERCISE #3
 	public void add2Test() { 
 		Card[] oneCardDeck = { qHeartsCard, null };
 		Card[] twoCardDeck = { qHeartsCard, fiveSpadesCard };
@@ -78,8 +78,8 @@ public class CardTester {
 	}
 	
 	
-	@Test
-	public void removeJokerTest() {
+	@Test // EXERCISE #4
+	public void removeJokersTest() {
 		Card[] emptyDeck = new Card[0];
 		Card[] KSJokerC5S = { kSpadesCard, jokerClubsCard, fiveSpadesCard };
 		Card[] TenCJokerC9HJokerD = { tenClubsCard, jokerClubsCard, nineHeartsCard, jokerDiamondCard };
@@ -88,25 +88,62 @@ public class CardTester {
 		// Empty Deck
 		Card[] emptyDeckResult = Card.removeJokers(emptyDeck, 0);
 		assertEquals("Result should be empty", 0, emptyDeckResult.length);
+		
 		// One Joker
 		Card[] KSJokerC5SResult = Card.removeJokers(KSJokerC5S, 1);
 		assertEquals("Result should have two items", 2, KSJokerC5SResult.length);
-		assertEquals("Item 1 should be King of Spades", kSpadesCard, KSJokerC5SResult[0 ]);
+		assertEquals("Item 1 should be King of Spades", kSpadesCard, KSJokerC5SResult[0]);
 		assertEquals("Item 2 should be Five of Spades", fiveSpadesCard, KSJokerC5SResult[1]);
+		
 		// Two Jokers
 		Card[] TenJokerC9HJokerDResult = Card.removeJokers(TenCJokerC9HJokerD, 2);
 		assertEquals("Result should have two items", 2, TenJokerC9HJokerDResult.length);
 		assertEquals("Item 1 should be Ten of Clubs", tenClubsCard, TenJokerC9HJokerDResult[0]);
 		assertEquals("Item 2 should be Nine of Hearts", nineHeartsCard, TenJokerC9HJokerDResult[1]);
+		
 		// Only Jokers
 		Card[] JokerDeckResult = Card.removeJokers(JokerDeck, 2);
 		assertEquals("Result should be empty", 0, JokerDeckResult.length);
+		
 		// Three Jokers
 		Card[] JokerD2DJokerCJokerDResult = Card.removeJokers(JokerD2DJokerCJokerD, 3);
 		assertEquals("Result should have one items", 1, JokerD2DJokerCJokerDResult. length);
 		assertEquals("Item 1 should be Two of Diamonds", twoDiamondCard, JokerD2DJokerCJokerDResult[0]);
 	}
 	
+	
+	@Test // EXERCISE #5
+	public void removeAllJokersTest() {
+		Card[] emptyDeck = new Card[0];
+		Card[] KSJokerC5S = { kSpadesCard, jokerClubsCard, fiveSpadesCard };
+		Card[] TenCJokerC9HJokerD = { tenClubsCard, jokerClubsCard, nineHeartsCard, jokerDiamondCard };
+		Card[] JokerDeck = {jokerClubsCard, jokerDiamondCard };
+		Card[] JokerD2DJokerCJokerD = { jokerDiamondCard, twoDiamondCard, jokerClubsCard , jokerDiamondCard };
+		// Empty Deck
+		Card[] emptyDeckResult = Card.removeAllJokers(emptyDeck);
+		assertEquals("Result should be empty", 0, emptyDeckResult.length);
+		
+		// One Joker
+		Card[] KSJokerC5SResult = Card.removeAllJokers(KSJokerC5S);
+		assertEquals("Result should have two items", 2, KSJokerC5SResult.length);
+		assertEquals("Item 1 should be King of Spades", kSpadesCard, KSJokerC5SResult[0]);
+		assertEquals("Item 2 should be Five of Spades", fiveSpadesCard, KSJokerC5SResult[1]);
+		
+		// Two Jokers
+		Card[] TenJokerC9HJokerDResult = Card.removeAllJokers(TenCJokerC9HJokerD);
+		assertEquals("Result should have two items", 2, TenJokerC9HJokerDResult.length);
+		assertEquals("Item 1 should be Ten of Clubs", tenClubsCard, TenJokerC9HJokerDResult[0]);
+		assertEquals("Item 2 should be Nine of Hearts", nineHeartsCard, TenJokerC9HJokerDResult[1]);
+		
+		// Only Jokers
+		Card[] JokerDeckResult = Card.removeAllJokers(JokerDeck);
+		assertEquals("Result should be empty", 0, JokerDeckResult.length);
+		
+		// Three Jokers
+		Card[] JokerD2DJokerCJokerDResult = Card.removeAllJokers(JokerD2DJokerCJokerD);
+		assertEquals("Result should have one items", 1, JokerD2DJokerCJokerDResult. length);
+		assertEquals("Item 1 should be Two of Diamonds", twoDiamondCard, JokerD2DJokerCJokerDResult[0]);
+	}	
 	
 	@Test
 	public void test() {

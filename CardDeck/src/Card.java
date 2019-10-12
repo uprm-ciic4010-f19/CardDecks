@@ -119,6 +119,7 @@
 
 
 	 /**
+	  * EXERCISE #2
 	  * Add target Card to end of deck.
 	  * Throw array-out-of-bounds exception if deck is full.
 	  * @param deck
@@ -136,6 +137,7 @@
 
 
 	 /**
+	  * EXERCISE #3
 	  * Add target Card to end of deck.
 	  * If deck is full, expand deck (double in size).
 	  * @param newCard
@@ -162,7 +164,7 @@
 
 
 	 /**   
-	  * Exercise X
+	  * Exercise #4
 	  * Returns a new deck with all the Joker cards removed   
 	  * from the original deck given how many joker cards are   
 	  * in the given array.   
@@ -171,7 +173,44 @@
 	  * @return   
 	  */
 	 public static Card[] removeJokers(Card[] deck, int jokerCount) {
+		 Card[] newDeck = new Card[deck.length-jokerCount];
+		 //Card[] newDeck = new Card[deck.length]; // chat question
+		 int j=0;
+		 for (int i = 0; i < deck.length; i++) {
+			 if(deck[i].rank != Rank.JOKER) {
+				 newDeck[j++] = deck[i]; 
+			 }
+		 }
+		 return newDeck;
+	 }
+	 
+	 /**   
+	  * Exercise #5
+	  * Returns a new deck with all the Joker cards removed   
+	  * from the original deck given how many joker cards are   
+	  * in the given array.   
+	  * @param deck   
+	  * @param jokerCount   
+	  * @return   
+	  */
+	 public static Card[] removeAllJokers(Card[] deck) {
+		 // TODO Exercise 5 - Your Code Here
+		 // To complete this as practice for the exam.
 		 return null;
-	 }  	 
+	 }	
+	 
+	 /**   
+	  * Exercise #6 
+	  * Checks true if there are any cards in common between two decks.   
+	  * @param deck1   
+	  * @param deck2   
+	  * @return   
+	  */
+	 public static boolean cardInCommon(Card[] deck1, Card[] deck2) {
+		 // TODO Exercise 6
+		 return false;
+	 }	 
+	 
+	 
 
  } // END OF CARD CLASS
